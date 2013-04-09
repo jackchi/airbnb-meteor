@@ -1,0 +1,1 @@
+var Airlist = new Meteor.Collection("Airlist");

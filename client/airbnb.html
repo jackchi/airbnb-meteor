@@ -1,0 +1,46 @@
+  <head>
+    <title>Airbnb Listings</title>
+  </head>
+  <body>
+    {{>body}}
+  </body>
+
+  <template name="body">
+      <div class="row-fluid">
+        <div class="span12">
+          <h1>Airbnb Listings</h1>
+          <div class="row-fluid">
+            <div class="span5 offset1">
+              {{> where}}
+            </div>
+            <div class="span7">
+              {{> content }}
+              {{#if hasRooms}}
+                {{> rooms }}
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </template>
+
+  <template name="where">
+    <form class="form-search">
+        <input type="text" class="input-medium search-query" placeholder="e.g: Singapore" id="location">
+        <button type="submit" class="btn" id="find">FIND</button>
+    </form>
+  </template>
+
+  <template name="rooms">
+    {{#each rooms}}
+      <div class="room">
+        <h3>{{ unitName }}</h3>
+        <img src="{{ unitThumb}}"</img> {{ unitPrice}} {{ priceModifier}}
+      </div>
+    {{/each}}
+  </template>
+
+  <template name="content">
+    <div id="listings"></div>
+  </template>
